@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const NavBar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -20,9 +20,9 @@ const NavBar = (props) => {
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
+          <li className="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle"
+              className="nav-link dropdown-toggle"
               href="#"
               id="navbarDropdown"
               role="button"
@@ -33,23 +33,23 @@ const NavBar = (props) => {
               Courses
             </a>
             <div
-              class="dropdown-menu text-center"
+              className="dropdown-menu text-center"
               aria-labelledby="navbarDropdown"
             >
-              <a class="dropdown-item" href="services">
+              <a className="dropdown-item" href="services">
                 Open Water Diver Course
               </a>
-              <a class="dropdown-item" href="services">
+              <a className="dropdown-item" href="services">
                 Advanced Open Water Diver Course
               </a>
-              <a class="dropdown-item" href="services">
+              <a className="dropdown-item" href="services">
                 Rescue Diver
               </a>
-              <a class="dropdown-item" href="services">
+              <a className="dropdown-item" href="services">
                 Divemaster
               </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
+              <div className="dropdown-divider"></div>
+              <a className="dropdown-item" href="#">
                 PADI Specialties
               </a>
             </div>
@@ -63,11 +63,13 @@ const NavBar = (props) => {
                   {linkName}
                 </a>
               </li>
+              
             ))
+            
           }
           
         </ul>
-        <button className='btn btn-primary' style={{'float': 'right'}}>Log In</button>
+        {props.children}
       </div>
     </nav>
   );
