@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.trip {
+  color: skyblue;
+}
+
+.jumbotron{
+  background-color: #4b724b;
+}

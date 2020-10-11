@@ -7,6 +7,13 @@ import MainScreen from "./MainScreen";
 import TripsScreen from './TripsScreen';
 import BlogScreen from './BlogScreen';
 import LoginScreen from './LoginScreen';
+
+import OpenWaterDiveScreen from './courses/OpenWaterDiveScreen';
+import AdvancedOpenWaterDiverCourseScreen from './courses/AdvancedOpenWaterDiverCourseScreen';
+import DiveMasterScreen from './courses/DiveMasterScreen';
+import RescueDiverScreen from './courses/RescueDiverScreen';
+
+
 import RegistrationScreen from './RegistrationScreen'
 import NavBar from "./NavBar";
 import Jumbotron from "./Jumbotron";
@@ -56,9 +63,20 @@ const App = () => {
     <AppContext.Provider value={[globalState, setGlobalState]}>
       <BrowserRouter>
         <Switch>
-          <LayoutRoute path="/" exact={true} component={MainScreen} />
+        <LayoutRoute path="/" exact={true} component={MainScreen} />
           <LayoutRoute path="/trips" exact={true} component={TripsScreen} />
           <LayoutRoute path="/blog" exact={true} component={BlogScreen} />
+          
+          <LayoutRoute path="/openwaterdive" exact={true} component={OpenWaterDiveScreen} />
+          <LayoutRoute path="/AdvancedOpenWaterDiverCourse" exact={true} component={AdvancedOpenWaterDiverCourseScreen} />
+          <LayoutRoute path="/DiveMaster" exact={true} component={DiveMasterScreen} />
+          <LayoutRoute path="/RescueDiver" exact={true} component={RescueDiverScreen} />
+          
+
+
+
+
+
           <LayoutRoute
             path="/registration"
             exact={true}

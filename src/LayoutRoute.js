@@ -7,6 +7,7 @@ import IconButton from "./IconButton";
 import SocialMediaLinks from "./SocialMediaLinks";
 
 const LayoutRoute = (props) => {
+
   const [globalState, setGlobalState] = useContext(AppContext);
 
   const footerStyle = {
@@ -25,8 +26,8 @@ const LayoutRoute = (props) => {
 
   return (
     <React.Fragment>
-      <NavBar brand="Yellow Lions Dive Centre" links={["Trips", "Blog"]}>
-        {!globalState.loggedIn && (
+
+  <NavBar brand="Yellow Lions Dive Centre" links={[{label:'Trips', path:'trips'}, {label:'Blog', path:'blog'}]}>        {!globalState.loggedIn && (
           <Link to="/login" className="btn btn-secondary">
             Login
           </Link>
@@ -65,6 +66,8 @@ const LayoutRoute = (props) => {
         </Engagement>
       </div>
     </React.Fragment>
+
+    
   );
 };
 

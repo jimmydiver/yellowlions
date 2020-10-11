@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TripsScreen from "./TripsScreen"
+
 const NavBar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="/">
         {props.brand}
       </a>
       <button
@@ -36,16 +38,16 @@ const NavBar = (props) => {
               className="dropdown-menu text-center"
               aria-labelledby="navbarDropdown"
             >
-              <a className="dropdown-item" href="services">
+              <a className="dropdown-item" href="OpenWaterDive">
                 Open Water Diver Course
               </a>
-              <a className="dropdown-item" href="services">
+              <a className="dropdown-item" href="AdvancedOpenWaterDiverCourse">
                 Advanced Open Water Diver Course
               </a>
-              <a className="dropdown-item" href="services">
+              <a className="dropdown-item" href="RescueDiver">
                 Rescue Diver
               </a>
-              <a className="dropdown-item" href="services">
+              <a className="dropdown-item" href="Divemaster">
                 Divemaster
               </a>
               <div className="dropdown-divider"></div>
@@ -56,14 +58,13 @@ const NavBar = (props) => {
           </li>
           {
             // loop through links
-            props.links.map((linkName) => (
+            props.links.map((entry) => (
               // for every link, generate an 'li'
               <li className="nav-item active">
-                <a className="nav-link" href="#">
-                  {linkName}
-                </a>
+                <Link className="nav-link" to={entry.path}>
+                  {entry.label}
+                </Link>
               </li>
-              
             ))
             
           }
