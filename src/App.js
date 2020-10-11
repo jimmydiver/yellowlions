@@ -6,7 +6,8 @@ import LayoutRoute from "./LayoutRoute";
 import MainScreen from "./MainScreen";
 import TripsScreen from './TripsScreen';
 import BlogScreen from './BlogScreen';
-import LoginScreen from './LoginScreen'
+import LoginScreen from './LoginScreen';
+import RegistrationScreen from './RegistrationScreen'
 import NavBar from "./NavBar";
 import Jumbotron from "./Jumbotron";
 import Card from "./Card";
@@ -58,7 +59,11 @@ const App = () => {
           <LayoutRoute path="/" exact={true} component={MainScreen} />
           <LayoutRoute path="/trips" exact={true} component={TripsScreen} />
           <LayoutRoute path="/blog" exact={true} component={BlogScreen} />
-          
+          <LayoutRoute
+            path="/registration"
+            exact={true}
+            component={RegistrationScreen}
+          />
           <LayoutRoute path="/login" exact={true} component={LoginScreen} />
         
          
@@ -70,11 +75,7 @@ const App = () => {
 
 export default App;
 /*
-<LayoutRoute
-            path="/registration"
-            exact={true}
-            component={RegistrationScreen}
-          />
+
           <PrivateRoute
           path="/profile"
           exact={true}

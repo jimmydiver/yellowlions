@@ -26,7 +26,6 @@ const LayoutRoute = (props) => {
   return (
     <React.Fragment>
       <NavBar brand="Yellow Lions Dive Centre" links={["Trips", "Blog"]}>
-       
         {!globalState.loggedIn && (
           <Link to="/login" className="btn btn-secondary">
             Login
@@ -61,11 +60,9 @@ const LayoutRoute = (props) => {
             <IconButton icon="fa-youtube" />
           </SocialMediaLinks>
           <p style={{ color: "white", margin: "10px" }}>
-          Copyright Yellow Lions Dive Centre 2020
-        </p>
-      
+            Copyright Yellow Lions Dive Centre 2020
+          </p>
         </Engagement>
-            
       </div>
     </React.Fragment>
   );
