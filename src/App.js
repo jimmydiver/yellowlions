@@ -3,7 +3,7 @@ import "./App.css";
 import NavBar from "./NavBar";
 import Jumbotron from "./Jumbotron";
 import Card from "./Card";
-import Carousel from "react-bootstrap/Carousel";
+import OurCarousel from './OurCarousel';
 import IconButton from "./IconButton";
 import Engagement from "./Engagement";
 import SocialMediaLinks from "./SocialMediaLinks";
@@ -14,7 +14,7 @@ const App = () => {
       <NavBar
         brand="Yellow Lions Dive Centre"
         links={["Trips", "Blog"]}
-        links2={["Sign Up", "Log In"]}
+        links2={["Log In"]}
       >
         <div className="form-inline my-2 my-lg-0">
           <input
@@ -31,48 +31,8 @@ const App = () => {
           </button>
         </div>
       </NavBar>
-
-      <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://images.unsplash.com/photo-1544551763-8dd44758c2dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h1 class="display-5">
-              The BEST 5* PADI Dive Centre based in the Cloud!{" "}
-            </h1>
-            <p>Join us in the sky and in the sea</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://images.unsplash.com/photo-1544551763-92ab472cad5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt="Third slide"
-          />
-
-          <Carousel.Caption>
-            <h1 class="display-5">Transform your life today and dive in!</h1>
-            <p>Start the first day of the rest of your life</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-            alt="Third slide"
-          />
-
-          <Carousel.Caption>
-            <h1 class="display-5">
-              Invite a friend to get certified and get a free dive on us!{" "}
-            </h1>
-            <p>Get your buddies involved and dive for free!</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+<OurCarousel/>
+      
 
       <Jumbotron
         href="services"
@@ -81,8 +41,8 @@ const App = () => {
       />
 
       <div
-        className="container-fluid"
-        style={{ display: "flex", "justify-content": "space-around" }}
+        className="container-cards"
+        
       >
         <Card
           title="PADI Open Water Course"

@@ -65,7 +65,9 @@ const NavBar = (props) => {
               </li>
             ))
           }
+          
         </ul>
+        <button className='btn btn-primary' style={{'float': 'right'}}>Log In</button>
       </div>
     </nav>
   );

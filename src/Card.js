@@ -4,8 +4,8 @@ import React from "react";
 // 2. Declare the component as a function
 const Card = (props) => {
   const cardStyle = {
-    width: "300px",
-    height: "auto"
+    width: "20em",
+    height: "40em"
   };
 
   return (
