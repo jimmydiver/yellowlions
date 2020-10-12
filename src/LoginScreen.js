@@ -156,9 +156,10 @@ const LoginScreen = () => {
               >
                 Login
               </button>
-              <br/>
-              <br/>
-              Don't have an account?<br/>
+              <br />
+              <br />
+              Don't have an account?
+              <br />
               <Link to="/registration" className="btn btn-primary">
                 Register
               </Link>

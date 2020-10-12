@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TripsScreen from "./TripsScreen"
+import TripsScreen from "./TripsScreen";
 
 const NavBar = (props) => {
   return (
@@ -66,9 +66,7 @@ const NavBar = (props) => {
                 </Link>
               </li>
             ))
-            
           }
-          
         </ul>
         {props.children}
       </div>

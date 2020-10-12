@@ -1,29 +1,25 @@
-import React, { useState, useContext } from 'react';
-import AppContext from './AppContext';
-import { Link } from 'react-router-dom';
-import './App.css';
-import OurCarousel from './OurCarousel';
-import Jumbotron from './Jumbotron';
-import Card from './Card';  
+import React, { useState, useContext } from "react";
+import AppContext from "./AppContext";
+import { Link } from "react-router-dom";
+import "./App.css";
+import OurCarousel from "./OurCarousel";
+import Jumbotron from "./Jumbotron";
+import Card from "./Card";
 
-
-const MainScreen = ()=> {
-    const [globalState, setGlobalState] = useContext(AppContext);
+const MainScreen = () => {
+  const [globalState, setGlobalState] = useContext(AppContext);
 
   const [state, setState] = useState();
 
   return (
-      <div className='screen'>
-          <OurCarousel/>
-          <Jumbotron
+    <div className="screen">
+      <OurCarousel />
+      <Jumbotron
         href="services"
         title="Our Services"
         text="Leave your stresses behind and get wet today! "
       />
-       <div
-        className="container-cards"
-        
-      >
+      <div className="container-cards">
         <Card
           title="PADI Open Water Course"
           text="Take your first breathes underwater and dive with a buddy upto 18m!"
@@ -53,7 +49,7 @@ const MainScreen = ()=> {
         title="Keep up to date and join us"
         para="Leave your email address below to find out more"
       ></Jumbotron>
-      <div class="container" style={{ maxWidth: "40em"}}>
+      <div class="container" style={{ maxWidth: "40em" }}>
         <label>Enter your firstname *</label>
         <input class="field form-control" name="firstName" type="text" />
 
@@ -67,8 +63,8 @@ const MainScreen = ()=> {
           Join Us
         </button>
       </div>
-      </div>
-  )
-}
+    </div>
+  );
+};
 
-export default MainScreen
+export default MainScreen;

@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 
 const OurCarousel = () => {
-    return(
-        <div className='carousel'>
-             <Carousel>
+  return (
+    <div className="carousel">
+      <Carousel>
         <Carousel.Item>
-          <img style={{'max-height':'95vh'}}
+          <img
+            style={{ "max-height": "95vh" }}
             className="d-block w-100"
             src="https://images.unsplash.com/photo-1544551763-8dd44758c2dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
             alt="First slide"
@@ -19,7 +20,8 @@ const OurCarousel = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img style={{'max-height':'95vh'}}
+          <img
+            style={{ "max-height": "95vh" }}
             className="d-block w-100"
             src="https://images.unsplash.com/photo-1544551763-92ab472cad5d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
             alt="Third slide"
@@ -31,7 +33,8 @@ const OurCarousel = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img style={{'max-height':'95vh'}}
+          <img
+            style={{ "max-height": "95vh" }}
             className="d-block w-100"
             src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
             alt="Third slide"
@@ -45,9 +48,8 @@ const OurCarousel = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-        </div>
-       
-    )
-}
+    </div>
+  );
+};
 
-export default OurCarousel
+export default OurCarousel;

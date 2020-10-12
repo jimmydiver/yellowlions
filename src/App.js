@@ -4,24 +4,15 @@ import { BrowserRouter, Redirect, Route, Switch, Link } from "react-router-dom";
 import AppContext from "./AppContext";
 import LayoutRoute from "./LayoutRoute";
 import MainScreen from "./MainScreen";
-import TripsScreen from './TripsScreen';
-import BlogScreen from './BlogScreen';
-import LoginScreen from './LoginScreen';
-
-import OpenWaterDiveScreen from './courses/OpenWaterDiveScreen';
-import AdvancedOpenWaterDiverCourseScreen from './courses/AdvancedOpenWaterDiverCourseScreen';
-import DiveMasterScreen from './courses/DiveMasterScreen';
-import RescueDiverScreen from './courses/RescueDiverScreen';
-
-
-import RegistrationScreen from './RegistrationScreen'
-import NavBar from "./NavBar";
-import Jumbotron from "./Jumbotron";
-import Card from "./Card";
-import OurCarousel from "./OurCarousel";
-import IconButton from "./IconButton";
-import Engagement from "./Engagement";
-import SocialMediaLinks from "./SocialMediaLinks";
+import TripsScreen from "./TripsScreen";
+import BlogScreen from "./BlogScreen";
+import LoginScreen from "./LoginScreen";
+import ProfileScreen from "./ProfileScreen";
+import OpenWaterDiveScreen from "./courses/OpenWaterDiveScreen";
+import AdvancedOpenWaterDiverCourseScreen from "./courses/AdvancedOpenWaterDiverCourseScreen";
+import DiveMasterScreen from "./courses/DiveMasterScreen";
+import RescueDiverScreen from "./courses/RescueDiverScreen";
+import RegistrationScreen from "./RegistrationScreen";
 
 const PrivateRoute = (props) => {
   const [globalState, setGlobalState] = useContext(AppContext);
@@ -63,19 +54,30 @@ const App = () => {
     <AppContext.Provider value={[globalState, setGlobalState]}>
       <BrowserRouter>
         <Switch>
-        <LayoutRoute path="/" exact={true} component={MainScreen} />
+          <LayoutRoute path="/" exact={true} component={MainScreen} />
           <LayoutRoute path="/trips" exact={true} component={TripsScreen} />
           <LayoutRoute path="/blog" exact={true} component={BlogScreen} />
-          
-          <LayoutRoute path="/openwaterdive" exact={true} component={OpenWaterDiveScreen} />
-          <LayoutRoute path="/AdvancedOpenWaterDiverCourse" exact={true} component={AdvancedOpenWaterDiverCourseScreen} />
-          <LayoutRoute path="/DiveMaster" exact={true} component={DiveMasterScreen} />
-          <LayoutRoute path="/RescueDiver" exact={true} component={RescueDiverScreen} />
-          
 
-
-
-
+          <LayoutRoute
+            path="/openwaterdive"
+            exact={true}
+            component={OpenWaterDiveScreen}
+          />
+          <LayoutRoute
+            path="/AdvancedOpenWaterDiverCourse"
+            exact={true}
+            component={AdvancedOpenWaterDiverCourseScreen}
+          />
+          <LayoutRoute
+            path="/DiveMaster"
+            exact={true}
+            component={DiveMasterScreen}
+          />
+          <LayoutRoute
+            path="/RescueDiver"
+            exact={true}
+            component={RescueDiverScreen}
+          />
 
           <LayoutRoute
             path="/registration"
@@ -83,8 +85,11 @@ const App = () => {
             component={RegistrationScreen}
           />
           <LayoutRoute path="/login" exact={true} component={LoginScreen} />
-        
-         
+          <PrivateRoute
+            path="/profile"
+            exact={true}
+            component={ProfileScreen}
+          />
         </Switch>
       </BrowserRouter>
     </AppContext.Provider>
