@@ -9,6 +9,8 @@ import SocialMediaLinks from "./SocialMediaLinks";
 const LayoutRoute = (props) => {
   const [globalState, setGlobalState] = useContext(AppContext);
 
+ 
+
   const footerStyle = {
     // position: 'absolute',
     // bottom: '0px',
@@ -23,6 +25,8 @@ const LayoutRoute = (props) => {
     });
   };
 
+
+
   return (
     <React.Fragment>
       <NavBar
@@ -32,6 +36,7 @@ const LayoutRoute = (props) => {
           { label: "Blog", path: "blog" },
         ]}
       >
+        
         {" "}
         {!globalState.loggedIn && (
           <Link to="/login" className="btn btn-secondary">
