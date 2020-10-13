@@ -5,11 +5,20 @@ import NavBar from "./NavBar";
 import Engagement from "./Engagement";
 import IconButton from "./IconButton";
 import SocialMediaLinks from "./SocialMediaLinks";
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 const LayoutRoute = (props) => {
   const [globalState, setGlobalState] = useContext(AppContext);
 
- 
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+  const classes = useStyles();
 
   const footerStyle = {
     // position: 'absolute',
@@ -39,18 +48,23 @@ const LayoutRoute = (props) => {
         
         {" "}
         {!globalState.loggedIn && (
-          <Link to="/login" className="btn btn-secondary">
-            Login
+         
+          <Link to="/login" >
+             <Button variant="contained" color="primary">
+          Login
+        </Button>
           </Link>
         )}
         {globalState.loggedIn && (
           <>
-            <Link to="/profile" className="btn btn-secondary">
-              Profile
+            <Link to="/profile">
+            <Button variant="contained" color="primary" style={{'margin-right':'1em'}}>
+          Profile
+        </Button>
             </Link>
-            <button onClick={logoutUser} className="btn btn-secondary">
-              Log out
-            </button>
+            <Button variant="outlined" color="secondary" onClick={logoutUser}>
+          Log out
+        </Button>
           </>
         )}
       </NavBar>

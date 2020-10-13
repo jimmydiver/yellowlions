@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 const ProfileScreen = () => {
 
@@ -95,16 +96,10 @@ const ProfileScreen = () => {
 
                 <br/><br/>
 
-                <button 
-                className="btn btn-primary"
-                style={
-                    {
-                        padding: "10px", 
-                        fontSize: "16px"
-                    }
-                }>
-                    Update
-                </button>
+                
+                <Button variant="contained" color="primary" >
+          Update
+        </Button>
             </div>
 
         </div>

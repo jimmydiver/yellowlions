@@ -3,8 +3,19 @@ import { Redirect, Link } from "react-router-dom";
 import AppContext from "./AppContext";
 import NavBar from "./NavBar";
 import { validEmail, validPassword } from "./utils";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const LoginScreen = () => {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      "& > *": {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+  const classes = useStyles();
+
   const [globalState, setGlobalState] = useContext(AppContext);
 
   const [state, setState] = useState({
@@ -145,23 +156,22 @@ const LoginScreen = () => {
 
           {!state.preloader && (
             <>
-              <button
+              <Button
+                variant="contained"
+                color="primary"
                 ref={(comp) => (submitButton = comp)}
-                className="btn btn-primary"
                 onClick={loginUser}
-                style={{
-                  padding: "10px",
-                  fontSize: "16px",
-                }}
               >
                 Login
-              </button>
+              </Button>
               <br />
-              <br />
+              <br/>
               Don't have an account?
               <br />
-              <Link to="/registration" className="btn btn-primary">
-                Register
+              <Link to="/registration">
+                <Button variant="contained" color="primary" style={{'margin-top':'1em'}}>
+                  Register
+                </Button>
               </Link>
             </>
           )}

@@ -21,7 +21,10 @@
 .container-cards{
   display:grid;
   grid-template-columns: repeat(4,1fr);
-  justify-items:center
+  justify-items:center;
+}
+.card-text{
+  text-align: justify;
 }
 @media only screen and (max-width:800px){
   .container-cards{
@@ -42,8 +45,8 @@
 
   .jumbotron {
     background-color: white;
+    text-align: center;
   }
-
 
 .App-header {
   background-color: #282c34;

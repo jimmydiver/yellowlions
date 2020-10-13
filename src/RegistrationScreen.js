@@ -3,8 +3,19 @@ import AppContext from "./AppContext";
 import { Redirect } from "react-router-dom";
 import NavBar from "./NavBar";
 import { validEmail, validPassword } from "./utils";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const RegistrationScreen = () => {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      "& > *": {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+  const classes = useStyles();
+
   const [globalState, setGlobalState] = useContext(AppContext);
 
   const [state, setState] = useState({
@@ -75,7 +86,6 @@ const RegistrationScreen = () => {
       formData.append("lastName", lastNameField.value);
       formData.append("email", emailField.value);
       formData.append("password", passwordField.value);
-      
 
       // fetch function
       fetch("http://localhost:3002/users/register", {
@@ -119,8 +129,6 @@ const RegistrationScreen = () => {
   } else {
     return (
       <div>
-       
-
         <div
           className="container"
           style={{
@@ -172,7 +180,6 @@ const RegistrationScreen = () => {
             autocomplete="off"
             type="password"
           />
-          
           <br />
           <br />
           <label>Upload your profile picture</label>
@@ -197,17 +204,14 @@ const RegistrationScreen = () => {
           Yes
           <br />
           <br />
-          <button
+          <Button
+            variant="contained"
+            color="primary"
             ref={(comp) => (submitButton = comp)}
-            className="btn btn-primary"
             onClick={registerUser}
-            style={{
-              padding: "10px",
-              fontSize: "16px",
-            }}
           >
             Register
-          </button>
+          </Button>
         </div>
       </div>
     );
