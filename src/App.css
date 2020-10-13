@@ -23,6 +23,10 @@
   grid-template-columns: repeat(4,1fr);
   justify-items:center;
 }
+.card{
+  display: grid;
+  grid-template-rows: 1fr 1fr
+}
 .card-text{
   text-align: justify;
 }

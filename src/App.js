@@ -59,22 +59,22 @@ const App = () => {
           <LayoutRoute path="/blog" exact={true} component={BlogScreen} />
 
           <LayoutRoute
-            path="/openwaterdive"
+            path="/PADIOpenWaterCourse"
             exact={true}
             component={OpenWaterDiveScreen}
           />
           <LayoutRoute
-            path="/AdvancedOpenWaterDiverCourse"
+            path="/PADIAdvancedOpenWaterCourse"
             exact={true}
             component={AdvancedOpenWaterDiverCourseScreen}
           />
           <LayoutRoute
-            path="/DiveMaster"
+            path="/PADIDivemaster"
             exact={true}
             component={DiveMasterScreen}
           />
           <LayoutRoute
-            path="/RescueDiver"
+            path="/PADIRescueDiverCourse"
             exact={true}
             component={RescueDiverScreen}
           />

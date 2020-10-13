@@ -10,8 +10,8 @@ const TripsScreen = () => {
       </center>
 
       <div
-        className="container"
-        style={{ display: "flex", "justify-content": "space-between" }}
+        className="container-cards"
+        
       >
         <Card
           title="beginners Trip"

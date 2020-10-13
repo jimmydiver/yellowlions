@@ -38,16 +38,16 @@ const NavBar = (props) => {
               className="dropdown-menu text-center"
               aria-labelledby="navbarDropdown"
             >
-              <a className="dropdown-item" href="OpenWaterDive">
+              <a className="dropdown-item" href="PADIOpenWaterCourse">
                 Open Water Diver Course
               </a>
-              <a className="dropdown-item" href="AdvancedOpenWaterDiverCourse">
+              <a className="dropdown-item" href="PADIAdvancedOpenWaterCourse">
                 Advanced Open Water Diver Course
               </a>
-              <a className="dropdown-item" href="RescueDiver">
+              <a className="dropdown-item" href="PADIRescueDiverCourse">
                 Rescue Diver
               </a>
-              <a className="dropdown-item" href="Divemaster">
+              <a className="dropdown-item" href="PADIDivemaster">
                 Divemaster
               </a>
               <div className="dropdown-divider"></div>
