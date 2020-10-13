@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import AppContext from "./AppContext";
 import { Link } from "react-router-dom";
+import Mailchimp from "react-mailchimp-form";
 import "./App.css";
 import OurCarousel from "./OurCarousel";
 import Jumbotron from "./Jumbotron";
@@ -8,7 +9,8 @@ import Card from "./Card";
 
 const MainScreen = () => {
   const [globalState, setGlobalState] = useContext(AppContext);
-
+  const url =
+    "https://gmail.us17.list-manage.com/subscribe/post?u=df873d65a5bf71549a102fdd0&amp;id=b2970616fa";
   const [state, setState] = useState();
 
   return (
@@ -46,23 +48,45 @@ const MainScreen = () => {
         />
       </div>
       <Jumbotron
-        title="Keep up to date and join us"
+        title="Keep up to date"
         para="Leave your email address below to find out more"
       ></Jumbotron>
-      <div class="container" style={{ maxWidth: "40em" }}>
-        <label>Enter your firstname *</label>
-        <input class="field form-control" name="firstName" type="text" />
 
-        <label>Enter your lastname *</label>
-        <input class="field form-control" name="lastName" type="text" />
-
-        <label>Enter your email *</label>
-        <input class="field form-control" name="email" type="text" />
-
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Join Us
-        </button>
-      </div>
+      <Mailchimp
+        action="https://gmail.us17.list-manage.com/subscribe/post?u=df873d65a5bf71549a102fdd0&amp;id=b2970616fa"
+        //Adding multiple fields:
+        fields={[
+          {
+            name: "EMAIL",
+            placeholder: "Email",
+            type: "email",
+            required: true,
+          },
+          {
+            name: "FNAME",
+            placeholder: "First name",
+            type: "text",
+            required: true,
+          },
+          {
+            name: "LNAME",
+            placeholder: "Last name",
+            type: "text",
+            required: true,
+          },
+        ]}
+        // Change predetermined language
+        messages={{
+          sending: "Sending...",
+          success: "Thank you for subscribing!",
+          error: "An unexpected internal error has occurred.",
+          empty: "Please submit an e-mail",
+          duplicate: "Too many subscribe attempts for this email address",
+          button: "Join Us",
+        }}
+        // Add a personalized class
+        className="mailchimp"
+      />
     </div>
   );
 };
