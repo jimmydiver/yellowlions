@@ -5,7 +5,7 @@ import AppContext from "./AppContext";
 import LayoutRoute from "./LayoutRoute";
 import MainScreen from "./MainScreen";
 import TripsScreen from "./TripsScreen";
-import BlogScreen from "./BlogScreen";
+import BlogScreen from "./blog/BlogScreen";
 import LoginScreen from "./LoginScreen";
 import ProfileScreen from "./ProfileScreen";
 import OpenWaterDiveScreen from "./courses/OpenWaterDiveScreen";
@@ -13,9 +13,10 @@ import AdvancedOpenWaterDiverCourseScreen from "./courses/AdvancedOpenWaterDiver
 import DiveMasterScreen from "./courses/DiveMasterScreen";
 import RescueDiverScreen from "./courses/RescueDiverScreen";
 import RegistrationScreen from "./RegistrationScreen";
+import Post from "./blog/Post"
 
 const PrivateRoute = (props) => {
-  const [globalState, setGlobalState] = useContext(AppContext);
+  const [globalState, setGlobalStateg] = useContext(AppContext);
 
   // If user logged in, let them through
   if (globalState.loggedIn) {
@@ -56,8 +57,10 @@ const App = () => {
         <Switch>
           <LayoutRoute path="/" exact={true} component={MainScreen} />
           <LayoutRoute path="/trips" exact={true} component={TripsScreen} />
+         
+          <LayoutRoute path="/blog/posts/:id" exact={true} component={Post} />
           <LayoutRoute path="/blog" exact={true} component={BlogScreen} />
-
+         
           <LayoutRoute
             path="/openwaterdive"
             exact={true}
