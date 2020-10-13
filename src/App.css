@@ -23,9 +23,13 @@
   grid-template-columns: repeat(4,1fr);
   justify-items:center;
 }
+
 .card{
   display: grid;
-  grid-template-rows: 1fr 1fr
+  grid-template-rows: 2fr 1.5fr;
+}
+.card-body{
+  max-height: 2em;
 }
 .card-text{
   text-align: justify;

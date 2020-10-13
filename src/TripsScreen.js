@@ -9,10 +9,7 @@ const TripsScreen = () => {
         <Jumbotron trip="Yellow Lions Trips"></Jumbotron>
       </center>
 
-      <div
-        className="container-cards"
-        
-      >
+      <div className="container-cards">
         <Card
           title="beginners Trip"
           text="Beautiful warm water, colourful marine life, shallow bays and the very best diving tuition. This collection is perfect for those seeking an amazing introduction to the underwater world on vacation."
