@@ -5,15 +5,15 @@ import NavBar from "./NavBar";
 import Engagement from "./Engagement";
 import IconButton from "./IconButton";
 import SocialMediaLinks from "./SocialMediaLinks";
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const LayoutRoute = (props) => {
   const [globalState, setGlobalState] = useContext(AppContext);
 
   const useStyles = makeStyles((theme) => ({
     root: {
-      '& > *': {
+      "& > *": {
         margin: theme.spacing(1),
       },
     },
@@ -21,10 +21,8 @@ const LayoutRoute = (props) => {
   const classes = useStyles();
 
   const footerStyle = {
-    // position: 'absolute',
-    // bottom: '0px',
-    // left: '0px',
-    // width: '100%'
+    "grid-row-start": "2",
+    "grid-row-end": "3",
   };
 
   const logoutUser = () => {
@@ -34,47 +32,51 @@ const LayoutRoute = (props) => {
     });
   };
 
-
-
   return (
     <React.Fragment>
-      <NavBar
-        brand="Yellow Lions Dive Centre"
-        links={[
-          { label: "Trips", path: "trips" },
-          { label: "Blog", path: "blog" },
-        ]}
-      >
-        
-        {" "}
-        {!globalState.loggedIn && (
-         
-          <Link to="/login" >
-             <Button variant="contained" color="primary">
-          Login
-        </Button>
-          </Link>
-        )}
-        {globalState.loggedIn && (
-          <>
-            <Link to="/profile">
-            <Button variant="contained" color="primary" style={{'margin-right':'1em'}}>
-          Profile
-        </Button>
+      <div style={{ position: "relative" }}>
+        <NavBar
+          brand="Yellow Lions Dive Centre"
+          links={[
+            { label: "Trips", path: "trips" },
+            { label: "Blog", path: "blog" },
+          ]}
+        >
+          {" "}
+          {!globalState.loggedIn && (
+            <Link to="/login">
+              <Button variant="contained" color="primary">
+                Login
+              </Button>
             </Link>
-            <Button variant="outlined" color="secondary" onClick={logoutUser}>
-          Log out
-        </Button>
-          </>
-        )}
-      </NavBar>
-      <Route
-        path={props.path}
-        exact={props.exact}
-        component={props.component}
-      />
-      <br />
-      <br />
+          )}
+          {globalState.loggedIn && (
+            <>
+              <Link to="/profile">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  style={{ "margin-right": "1em" }}
+                >
+                  Profile
+                </Button>
+              </Link>
+              <Button variant="outlined" color="secondary" onClick={logoutUser}>
+                Log out
+              </Button>
+            </>
+          )}
+        </NavBar>
+
+        <Route
+          path={props.path}
+          exact={props.exact}
+          component={props.component}
+        />
+
+        <br />
+        <br />
+      </div>
 
       <div style={footerStyle}>
         <Engagement>
