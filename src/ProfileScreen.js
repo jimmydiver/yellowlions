@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-//import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import { validEmail, validPassword } from "./utils";
 import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -190,8 +190,10 @@ const ProfileScreen = () => {
             maxWidth: "50em",
           }}
         >
-          <h1>Hello {state.firstName}, welcome to your profile</h1>
-          <p>
+          <h1>Hello {state.firstName[0].toUpperCase()+state.firstName.substr(1)}, welcome to your profile</h1>
+          <p style={{
+              backgroundColor:"#f5f8fc"
+          }}>
             Random diving fact for today:
             <br /> {divingFacts[factNumber]}
           </p>
@@ -266,7 +268,9 @@ const ProfileScreen = () => {
           <br />
 
           <label>Profile picture</label>
-          <input
+          <input className='picture-input' style={{
+              
+          }}
             ref={(comp) => (photoField = comp)}
             onChange={attachFile}
             className="field form-control"
@@ -279,17 +283,13 @@ const ProfileScreen = () => {
           <br />
 
           {!state.preloader && (
-            <button
+            <Button variant="contained" color="primary"
               ref={(comp) => (updateButton = comp)}
               onClick={updateUser}
-              className="btn btn-primary"
-              style={{
-                padding: "10px",
-                fontSize: "16px",
-              }}
+              
             >
               Update
-            </button>
+            </Button>
           )}
         </div>
       )}
