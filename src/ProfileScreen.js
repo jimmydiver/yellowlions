@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-
+//import { makeStyles } from '@material-ui/core/styles';
+//import Button from '@material-ui/core/Button';
+import { validEmail, validPassword } from './utils'; 
 const ProfileScreen = () => {
 
     const [ state, setState ] = useState(
@@ -12,6 +12,120 @@ const ProfileScreen = () => {
             preloader: false
         }
     )
+
+ // All the registration data will go here
+ const formData = new FormData();
+
+ // Declare (not define) variables for React
+ let firstNameField;
+ let lastNameField;
+ let emailField;
+ let passwordField;
+ let photoField;
+ let updateButton;
+
+ const attachFile = (event) => {
+    // create a an array for files
+    const files = Array.from(event.target.files);
+
+    // append the files (e.g, image) to the FormData
+    files.forEach( (file, index)=> {
+        formData.append(index, file);
+    });
+}
+
+const updateUser = () => {
+    let errorMessages = [];
+
+    if(firstNameField.value.length === 0) {
+        errorMessages.push("Please enter your first name!");
+    }
+    if(lastNameField.value.length === 0) {
+        errorMessages.push("Please enter your last name!");
+    }
+    if(!validEmail(emailField.value)) {
+        errorMessages.push("Please enter your email!");
+    }
+    if(passwordField.value.length > 0 && !validPassword(passwordField.value)) {
+        errorMessages.push("Please enter a valid password!");
+    }
+
+    if(errorMessages.length > 0) {
+        setState(
+            {
+                ...state,
+                errors: errorMessages
+            }
+        )
+    } else {
+
+        // Turn on preloader
+        setState(
+            {
+                ...state,
+                errors: [],
+                preloader: true
+            }
+        )
+
+        // Complete the formData
+        formData.append('firstName', firstNameField.value);
+        formData.append('lastName', lastNameField.value);
+        formData.append('email', emailField.value);
+        
+        if(passwordField.value.length > 0 && validPassword(passwordField.value)) {
+            formData.append('password', passwordField.value);
+        }
+
+        console.log('new password', formData, passwordField.value)
+
+        // fetch function
+        fetch(`http://localhost:3002/users/update`,{
+            method: 'POST',
+            headers: {
+                //"Content-Type": "multipart/form-data"
+                'Authorization' : `Bearer ${localStorage.getItem('token')}`,
+            },
+            body: formData
+        })
+        // Convert the JSON string to an object
+        .then(
+            (response) => response.json()
+        )
+
+        // If Promise was successful
+        .then(
+            (response) => {
+                console.log(response);
+                
+                // Turn off preloader and reveal success message
+                setState(
+                    {
+                        ...state,
+                        errors: [],
+                        preloader: false,
+                        success: true
+                    }
+                )
+            }
+        )
+
+        // If Promise was not fulfilled
+        .catch(
+            (e) => {
+                console.log({e: e})
+                // Turn off preloader and reveal error message
+                setState(
+                    {
+                        ...state,
+                        preloader: false,
+                        errors: ['Something went wrong. Please try again.']
+                    }
+                )
+            }
+        )
+    }
+}
 
     useEffect(
         () => {
@@ -63,6 +177,28 @@ const ProfileScreen = () => {
                     }>
                 <h1>Profile Settings</h1>
 
+                { state.errors.length > 0 &&
+                    <div className="error-message">
+                        <ol>
+                        { 
+                            state.errors.map(
+                                (error) => <li>{error}</li>
+                            ) 
+                        }
+                        </ol>
+                    </div>
+                }
+
+                { state.preloader &&
+                    <div className="preloader">Loading...</div>
+                }
+
+                {
+                 state.success &&
+                    <div className="alert alert-success">Successfully Updated!</div>
+                }
+
+
                 <img src={state.photoURL} style={
                     {
                         width: '160px',
@@ -73,16 +209,16 @@ const ProfileScreen = () => {
 
                 <br/>
                 <label>Enter your firstname *</label>
-                <input type="text" className="field form-control" value={state.firstName}/>
+                <input ref={(comp)=>firstNameField = comp} type="text" className="field form-control" defaultValue={state.firstName}/>
 
                 <label>Enter your lastname *</label>
-                <input type="text" className="field form-control" value={state.lastName}/>
+                <input ref={(comp)=>lastNameField = comp} type="text" className="field form-control" defaultValue={state.lastName}/>
 
                 <label>Enter your email *</label>
-                <input type="text" className="field form-control" value={state.email}/>
+                <input ref={(comp)=>emailField = comp} type="text" className="field form-control" defaultValue={state.email}/>
 
                 <label>Enter your password *</label>
-                <input type="password" className="field form-control" />
+                <input ref={(comp)=>passwordField = comp} type="password" className="field form-control"/>
 
               
 
@@ -90,16 +226,29 @@ const ProfileScreen = () => {
 
                 <label>Upload your profile picture</label>
                 <input
+                ref={(comp)=>photoField = comp}
+                onChange={attachFile}
                 className="field form-control" id="photo" 
                 name="file" type="file" multiple="multiple"
                 />
-
                 <br/><br/>
 
-                
-                <Button variant="contained" color="primary" >
-          Update
-        </Button>
+                { 
+                !state.preloader &&
+                    <button 
+                    ref={(comp)=>updateButton = comp}
+                    onClick={updateUser}
+                    className="btn btn-primary"
+                    style={
+                        {
+                            padding: "10px", 
+                            fontSize: "16px"
+                        }
+                    }>
+                        Update
+                    </button>
+                }
+         
             </div>
 
         </div>
@@ -107,3 +256,6 @@ const ProfileScreen = () => {
 }
 
 export default ProfileScreen;
+//<Button variant="contained" color="primary" >
+//Update
+//</Button>
