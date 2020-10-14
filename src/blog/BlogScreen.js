@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import PostListItem from "./PostListItem"
 import Post from "./Post"
-
+import Jumbotron from "../Jumbotron";
+import Card from "../Card";
 
 class BlogScreen extends React.Component {
 
@@ -20,7 +21,7 @@ class BlogScreen extends React.Component {
   }
 
  
-  renderList(){
+  renderList(i){
     	return this.state.posts.map(post => {
         return(
           <PostListItem post = {post}  key ={post._id}/>
@@ -29,8 +30,27 @@ class BlogScreen extends React.Component {
   }
 
   render(){  
-    return <div>
-      {this.renderList()}
+  return <div> 
+          
+    
+    <div className="screen">  
+
+  <center>  
+  <Jumbotron 
+    trip="Blog" 
+    titleblog="What you need to know about diving?"
+
+
+    spaceblog= " ... "
+    textblog = {this.renderList()}
+    
+  >
+  </Jumbotron>
+  </center>
+    
+
+</div>
+
     </div>;
  }
 }
@@ -49,7 +69,7 @@ class BlogScreen extends React.Component {
 //     // If the profile data is not loaded
 //     if (!state.profileLoaded) {
 //       // fetch the data from backend
-//       fetch("http://localhost:3002/users/find", {
+//       fetch("http://localhost:3002/posts/", {
 //         method: "POST",
 //         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
 //         body: {},

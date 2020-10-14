@@ -9,6 +9,10 @@ body {
   min-height: 100%;
 }
 
+.good{
+  background-color: skyblue;
+}
+
 .App {
   text-align: center;
 }

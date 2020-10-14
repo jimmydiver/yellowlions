@@ -131,7 +131,7 @@ const NewPost = () => {
 
     else if(state.success) {
         return (
-            <Redirect to="/bolg" />
+            <Redirect to="/blog" />
         )
     } 
 

@@ -52,6 +52,20 @@ const LayoutRoute = (props) => {
           )}
           {globalState.loggedIn && (
             <>
+              <Link to="/blog/newposts">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  style={{ "margin-right": "1em" }}
+                >
+                  New Post
+                </Button>
+              </Link>
+                </>
+          )}
+
+          {globalState.loggedIn && (
+            <>
               <Link to="/profile">
                 <Button
                   variant="contained"
@@ -66,6 +80,7 @@ const LayoutRoute = (props) => {
               </Button>
             </>
           )}
+
         </NavBar>
 
         <Route
