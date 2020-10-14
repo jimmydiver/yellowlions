@@ -50,10 +50,7 @@ const NavBar = (props) => {
               <a className="dropdown-item" href="PADIDivemaster">
                 Divemaster
               </a>
-              <div className="dropdown-divider"></div>
-              <a className="dropdown-item" href="#">
-                PADI Specialties
-              </a>
+              
             </div>
           </li>
           {

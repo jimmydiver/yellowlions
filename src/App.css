@@ -1,6 +1,9 @@
 html,
 body {
   height: 100%;
+  background-color: rgb(230, 243, 248);
+  font-family: 'Dosis',
+  sans-serif;
 }
 
 #root {

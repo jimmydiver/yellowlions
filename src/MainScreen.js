@@ -38,7 +38,7 @@ const MainScreen = () => {
           title="PADI Rescue Diver Course"
           text="Earn the respect from all other divers on the boat. Prevent emergencies, save lives! "
           btnLabel="Join Today"
-          cardImage="https://lh3.googleusercontent.com/proxy/TCUbjDPtFaflofRejHIVlOTsXUaw1gz6KJ5dmSTDynAtY9dAI0x1h603ztkBUTitaSpWvokpoPNGa6J5PwEMzgt0fOF9IJaKwHQ"
+          cardImage = "https://cdn.divemall.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/d/i/diveshop.ae-service-image-rescuedivercourse-01.jpg"
         />
         <Card
           title="PADI Divemaster"
