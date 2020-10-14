@@ -14,6 +14,7 @@ import DiveMasterScreen from "./courses/DiveMasterScreen";
 import RescueDiverScreen from "./courses/RescueDiverScreen";
 import RegistrationScreen from "./RegistrationScreen";
 import Post from "./blog/Post"
+import NewPost from "./blog/NewPost"
 
 const PrivateRoute = (props) => {
   const [globalState, setGlobalStateg] = useContext(AppContext);
@@ -59,6 +60,8 @@ const App = () => {
           <LayoutRoute path="/trips" exact={true} component={TripsScreen} />
          
           <LayoutRoute path="/blog/posts/:id" exact={true} component={Post} />
+          <LayoutRoute path="/blog/newposts" exact={true} component={NewPost} />
+          
           <LayoutRoute path="/blog" exact={true} component={BlogScreen} />
          
           <LayoutRoute
