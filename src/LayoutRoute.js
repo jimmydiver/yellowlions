@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import AppContext from "./AppContext";
 import { Route, Link } from "react-router-dom";
 import NavBar from "./NavBar";
@@ -19,6 +19,50 @@ const LayoutRoute = (props) => {
     },
   }));
   const classes = useStyles();
+
+  let isAdmin;
+
+   const [state, setState] = useState({
+     profileLoaded: false,
+     errors: [],
+     success: false,
+     preloader: false,
+   });
+   useEffect(() => {
+     // If the profile data is not loaded
+    if (!state.profileLoaded) {
+       // fetch the data from backend
+       fetch("http://localhost:3002/users/find", {
+         method: "POST",
+         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+         body: {},
+       })
+         .then((response) => {
+           console.log("response", response);
+           return response.json();
+         })
+         .then((profile) => {
+           // Once data is loaded, change profileLoaded to true and
+           // change the state to populate the form fields
+           setState({
+             ...state,
+             profileLoaded: true,
+             id:profile[0]._id,
+           });
+         })
+         .catch((e) => console.log("e", e));
+     }
+   }, [globalState.loggedIn]);
+   if (state.id === "5f84531694093369d408402b") {
+     isAdmin = true;
+   }
+
+   console.log(isAdmin);
+
+
+
+
+
 
   const footerStyle = {
     "grid-row-start": "2",
@@ -50,7 +94,7 @@ const LayoutRoute = (props) => {
               </Button>
             </Link>
           )}
-          {globalState.loggedIn && (
+          {isAdmin && (
             <>
               <Link to="/blog/newposts">
                 <Button
