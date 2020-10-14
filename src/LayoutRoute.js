@@ -67,6 +67,7 @@ const LayoutRoute = (props) => {
   const footerStyle = {
     "grid-row-start": "2",
     "grid-row-end": "3",
+    'width': '100%'
   };
 
   const logoutUser = () => {

@@ -53,6 +53,16 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
   }
+.courseInfo{
+  width: "60em";
+    height: "20em";
+}
+}
+@media only screen and (max-width: 800px) {
+  .courseInfo {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
 }
 .mailchimp{
   display:grid;

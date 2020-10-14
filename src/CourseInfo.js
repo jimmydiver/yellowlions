@@ -1,12 +1,9 @@
 import React from "react";
 
 const CourseInfo = (props) => {
-  const courseStyle = {
-    width: "60em",
-    height: "20em",
-  };
+  
   return (
-    <div className="courseInfo" style={courseStyle}>
+    <div className="courseInfo">
       <div className="title">
         <h1 className="display-4"> {props.title} </h1>
       </div>

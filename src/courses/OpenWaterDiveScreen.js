@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Jumbotron from "../Jumbotron";
 import Image from "react-bootstrap/Image";
-import CourseInfo from '../CourseInfo';
+import CourseInfo from "../CourseInfo";
 const OpenWaterDive = () => {
-  
+  /*
   const [state, setState] = useState({
     courseName: "",
   });
@@ -30,10 +30,9 @@ const OpenWaterDive = () => {
       })
       .catch((e) => console.log("e", e));
   }, [state.courseName]);
-
+*/
   return (
     <div className="screen">
-      <p>{state.courseName}</p>
       <center>
         <Image
           src="https://www.twofishdivers.com/wp-content/uploads/2019/11/EN-OpenWater-Blog-Post-1200x600.jpg"
