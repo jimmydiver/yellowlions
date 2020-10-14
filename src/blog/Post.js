@@ -16,17 +16,21 @@ async getPost(){
 
         this.setState({post: res.data});
     }
-
+    
     renderHTML(){
-            return { __html: this.state.post.html };
+            return { __html: this.state.post.body };
     }
+    renderTitle(){
+        return { __html: this.state.post.title };
+}
 
     renderPost(){
-        return <div dangerouslySetInnerHTML = {this.renderHTML()}></div>;
+        return  <div dangerouslySetInnerHTML = {this.renderHTML()}></div>;
     }
 
     render(){
-        return(<div>{this.renderPost()}</div>);
+        
+        return(<div><h1>{this.state.post.title}</h1>{this.renderPost()}</div>);
         }}
 
 export default Post;
